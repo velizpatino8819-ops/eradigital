@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Era Digital - Portal Interactivo</title>
+    <!-- Tailwind CSS para diseño moderno y premium -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cyber: {
+                            dark: '#0B0F19',
+                            card: '#161D30',
+                            accent: '#6366F1',
+                            neonGreen: '#10B981',
+                            neonPink: '#EC4899',
+                            neonBlue: '#3B82F6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0B0F19;
+            color: #E2E8F0;
+        }
+        /* Efectos de cristal y sombras de neón */
+        .glass-panel {
+            background: rgba(22, 29, 48, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .neon-shadow-blue:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        .neon-shadow-pink:hover {
+            box-shadow: 0 0 20px rgba(236, 72, 153, 0.4);
+        }
+        /* Personalización de la barra de desplazamiento */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4B5563;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden">
+
+    <!-- CABECERA / NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-gradient-to-tr from-indigo-500 to-pink-500 rounded-lg text-white font-bold text-xl tracking-wider shadow-lg">ED</span>
+                <span class="text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-indigo-200 to-indigo-400 bg-clip-text text-transparent">ERA DIGITAL</span>
+            </div>
+            <nav class="hidden md:flex space-x-1 lg:space-x-4">
+                <button onclick="scrollToSection('inicio')" class="px-3 py-2 text-sm font-semibold rounded-md text-indigo-400 hover:text-white transition">Inicio</button>
+                <button onclick="scrollToSection('historia')" class="px-3 py-2 text-sm font-semibold rounded-md text-gray-400 hover:text-white transition">Línea del Tiempo</button>
+                <button onclick="scrollToSection('dashboard')" class="px-3 py-2 text-sm font-semibold rounded-md text-gray-400 hover:text-white transition">Pulso Digital</button>
+                <button onclick="scrollToSection('combinador')" class="px-3 py-2 text-sm font-semibold rounded-md text-gray-400 hover:text-white transition">Laboratorio Futuro</button>
+                <button onclick="scrollToSection('trivia')" class="px-3 py-2 text-sm font-semibold rounded-md text-gray-400 hover:text-white transition">Trivia</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- SECCIÓN 1: HERO / INICIO -->
+        <section id="inicio" class="relative py-20 lg:py-32 overflow-hidden flex items-center">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,102,241,0.15),transparent_45%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(236,72,153,0.1),transparent_40%)]"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                        Bienvenido a la Revolución Tecnológica
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
+                        La Gran Época que <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">Redefinió la Humanidad</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0">
+                        La Era Digital no es solo tecnología; es la fusión constante entre el ingenio humano y los bits de información que dan forma a una sociedad hiperconectada y en constante evolución.
+                    </p>
+                    <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+                        <button onclick="scrollToSection('historia')" class="px-8 py-4 rounded-xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 text-white hover:opacity-90 transition transform hover:-translate-y-1 shadow-lg shadow-indigo-500/20">
+                            Iniciar el Viaje
+                        </button>
+                        <button onclick="scrollToSection('combinador')" class="px-8 py-4 rounded-xl font-semibold bg-gray-800 text-gray-200 hover:bg-gray-700 transition border border-gray-700 transform hover:-translate-y-1">
+                            Laboratorio del Futuro
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta Holográfica / Arte Abstracto SVG -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm p-6 rounded-3xl glass-panel border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition duration-500 group">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 to-pink-500 opacity-20 blur group-hover:opacity-40 transition"></div>
+                        <div class="relative z-10 space-y-6">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Nodos Digitales</span>
+                                <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                            </div>
+                            
+                            <!-- SVG interactivo representando flujos de información -->
+                            <svg class="w-full h-48 text-indigo-500" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="30" cy="60" r="8" fill="currentColor" class="animate-bounce" style="animation-delay: 0.1s" />
+                                <circle cx="100" cy="30" r="12" fill="#EC4899" />
+                                <circle cx="100" cy="90" r="10" fill="#10B981" />
+                                <circle cx="170" cy="60" r="8" fill="currentColor" class="animate-bounce" style="animation-delay: 0.3s" />
+                                <path d="M38 60 L88 32" stroke="white" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="4" />
+                                <path d="M38 60 L90 90" stroke="white" stroke-opacity="0.3" stroke-width="2" />
+                                <path d="M112 30 L162 60" stroke="white" stroke-opacity="0.3" stroke-width="2" />
+                                <path d="M110 90 L162 60" stroke="white" stroke-opacity="0.3" stroke-width="2" stroke-dasharray="4" />
+                            </svg>
+                            
+                            <div class="space-y-2">
+                                <h3 class="text-lg font-bold text-white">Sinergias Tecnológicas</h3>
+                                <p class="text-xs text-gray-400">La conectividad moderna no tiene fronteras. Cada nodo representa miles de conexiones que cambian vidas hoy mismo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: LÍNEA DEL TIEMPO INTERACTIVA -->
+        <section id="historia" class="py-20 bg-gray-950/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-semibold text-pink-400 uppercase tracking-widest">Evolución</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Línea del Tiempo de la Era Digital</h2>
+                    <p class="text-gray-400">Haz clic en los filtros para explorar las etapas críticas que transformaron nuestro mundo informático, social y global.</p>
+                    
+                    <!-- Filtros de categoría -->
+                    <div class="flex flex-wrap justify-center gap-2 pt-4">
+                        <button onclick="filterTimeline('all')" id="btn-all" class="px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition">Todos</button>
+                        <button onclick="filterTimeline('hardware')" id="btn-hardware" class="px-4 py-2 text-xs font-bold rounded-lg bg-gray-800 text-gray-400 hover:bg-gray-700 transition">Hardware</button>
+                        <button onclick="filterTimeline('network')" id="btn-network" class="px-4 py-2 text-xs font-bold rounded-lg bg-gray-800 text-gray-400 hover:bg-gray-700 transition">Internet & Redes</button>
+                        <button onclick="filterTimeline('software')" id="btn-software" class="px-4 py-2 text-xs font-bold rounded-lg bg-gray-800 text-gray-400 hover:bg-gray-700 transition">Software & IA</button>
+                    </div>
+                </div>
+
+                <!-- Contenedor Timeline -->
+                <div class="relative border-l border-gray-800 ml-4 md:ml-32 space-y-12">
+                    
+                    <!-- Evento 1 -->
+                    <div class="timeline-item relative pl-8 md:pl-12 group transition" data-category="hardware">
+                        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-cyber-dark border-4 border-indigo-500 group-hover:border-pink-500 transition"></div>
+                        <div class="absolute -left-16 md:-left-32 top-1 text-sm font-extrabold text-indigo-400">1947</div>
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5 hover:border-indigo-500/30 transition shadow-lg">
+                            <span class="text-xs font-bold text-indigo-400 uppercase">Hardware</span>
+                            <h3 class="text-xl font-bold text-white mt-1">Invención del Transistor</h3>
+                            <p class="text-gray-400 text-sm mt-2">
+                                Creado en los Laboratorios Bell, reemplazó a los tubos de vacío de gran tamaño, abriendo el camino para la miniaturización de la electrónica de cómputo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 2 -->
+                    <div class="timeline-item relative pl-8 md:pl-12 group transition" data-category="hardware">
+                        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-cyber-dark border-4 border-indigo-500 group-hover:border-pink-500 transition"></div>
+                        <div class="absolute -left-16 md:-left-32 top-1 text-sm font-extrabold text-indigo-400">1971</div>
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5 hover:border-indigo-500/30 transition shadow-lg">
+                            <span class="text-xs font-bold text-indigo-400 uppercase">Hardware</span>
+                            <h3 class="text-xl font-bold text-white mt-1">El Microprocesador Intel 4004</h3>
+                            <p class="text-gray-400 text-sm mt-2">
+                                La primera CPU comercial completa en un solo chip. Este avance monumental permitió llevar el poder de cómputo del tamaño de habitaciones a escritorios y hogares.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 3 -->
+                    <div class="timeline-item relative pl-8 md:pl-12 group transition" data-category="network">
+                        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-cyber-dark border-4 border-indigo-500 group-hover:border-pink-500 transition"></div>
+                        <div class="absolute -left-16 md:-left-32 top-1 text-sm font-extrabold text-indigo-400">1991</div>
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5 hover:border-indigo-500/30 transition shadow-lg">
+                            <span class="text-xs font-bold text-pink-400 uppercase">Internet & Redes</span>
+                            <h3 class="text-xl font-bold text-white mt-1">Nacimiento de la World Wide Web (WWW)</h3>
+                            <p class="text-gray-400 text-sm mt-2">
+                                Tim Berners-Lee publica el primer servidor web. Internet pasa de ser una herramienta gubernamental/académica a una red abierta al público global.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 4 -->
+                    <div class="timeline-item relative pl-8 md:pl-12 group transition" data-category="network">
+                        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-cyber-dark border-4 border-indigo-500 group-hover:border-pink-500 transition"></div>
+                        <div class="absolute -left-16 md:-left-32 top-1 text-sm font-extrabold text-indigo-400">2007</div>
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5 hover:border-indigo-500/30 transition shadow-lg">
+                            <span class="text-xs font-bold text-pink-400 uppercase">Internet & Redes</span>
+                            <h3 class="text-xl font-bold text-white mt-1">La Revolución del Smartphone</h3>
+                            <p class="text-gray-400 text-sm mt-2">
+                                El lanzamiento del iPhone revoluciona la computación móvil. El acceso continuo a internet en el bolsillo cambia radicalmente la sociedad, redes sociales y el comercio global.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Evento 5 -->
+                    <div class="timeline-item relative pl-8 md:pl-12 group transition" data-category="software">
+                        <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-cyber-dark border-4 border-indigo-500 group-hover:border-pink-500 transition"></div>
+                        <div class="absolute -left-16 md:-left-32 top-1 text-sm font-extrabold text-indigo-400">2022+</div>
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5 hover:border-indigo-500/30 transition shadow-lg">
+                            <span class="text-xs font-bold text-emerald-400 uppercase">Software & IA</span>
+                            <h3 class="text-xl font-bold text-white mt-1">La Era de la Inteligencia Artificial Generativa</h3>
+                            <p class="text-gray-400 text-sm mt-2">
+                                Modelos masivos de lenguaje (LLM) se integran en la vida diaria. La IA evoluciona de procesar datos estáticos a crear arte, programar y resolver problemas complejos.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: DASHBOARD / PULSO DIGITAL EN TIEMPO REAL -->
+        <section id="dashboard" class="py-20 relative">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.05),transparent_60%)]"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest">En Tiempo Real</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">El Pulso de la Tierra Digital</h2>
+                    <p class="text-gray-400">Desde que entraste a esta página, esta es una estimación de la cantidad de información generada e interacciones ocurridas globalmente en este preciso instante.</p>
+                </div>
+
+                <!-- Tarjetas del Dashboard -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Tarjeta 1 -->
+                    <div class="p-6 rounded-2xl glass-panel border border-white/5 flex flex-col justify-between h-44">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-blue-400 uppercase tracking-wider">Datos Generados</span>
+                            <span class="p-1.5 bg-blue-500/10 rounded-lg text-blue-400">💾</span>
+                        </div>
+                        <div>
+                            <span id="counter-data" class="text-3xl font-extrabold text-white">0</span>
+                            <span class="text-sm font-bold text-blue-400"> GB</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Estimación global en gigabytes de datos en la nube.</p>
+                    </div>
+
+                    <!-- Tarjeta 2 -->
+                    <div class="p-6 rounded-2xl glass-panel border border-white/5 flex flex-col justify-between h-44">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-pink-400 uppercase tracking-wider">Mails Enviados</span>
+                            <span class="p-1.5 bg-pink-500/10 rounded-lg text-pink-400">✉️</span>
+                        </div>
+                        <div>
+                            <span id="counter-emails" class="text-3xl font-extrabold text-white">0</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Correos electrónicos cruzando la red global.</p>
+                    </div>
+
+                    <!-- Tarjeta 3 -->
+                    <div class="p-6 rounded-2xl glass-panel border border-white/5 flex flex-col justify-between h-44">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-yellow-400 uppercase tracking-wider">Búsquedas en Google</span>
+                            <span class="p-1.5 bg-yellow-500/10 rounded-lg text-yellow-400">🔍</span>
+                        </div>
+                        <div>
+                            <span id="counter-searches" class="text-3xl font-extrabold text-white">0</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Consultas de información procesadas en internet.</p>
+                    </div>
+
+                    <!-- Tarjeta 4 -->
+                    <div class="p-6 rounded-2xl glass-panel border border-white/5 flex flex-col justify-between h-44">
+                        <div class="flex justify-between items-start">
+                            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Energía en Servidores</span>
+                            <span class="p-1.5 bg-emerald-500/10 rounded-lg text-emerald-400">⚡</span>
+                        </div>
+                        <div>
+                            <span id="counter-energy" class="text-3xl font-extrabold text-white">0</span>
+                            <span class="text-sm font-bold text-emerald-400"> kWh</span>
+                        </div>
+                        <p class="text-xs text-gray-500">Consumo eléctrico derivado del tráfico de internet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: LABORATORIO DE INNOVACIÓN / COMBINADOR -->
+        <section id="combinador" class="py-20 bg-gray-950/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <span class="text-xs font-semibold text-indigo-400 uppercase tracking-widest">Laboratorio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Combinador de Tecnologías Disruptivas</h2>
+                    <p class="text-gray-400">Selecciona dos tendencias tecnológicas del futuro y genera una simulación del escenario resultante en el mañana.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Selector de Tecnologías -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5">
+                            <h3 class="text-lg font-bold text-white mb-4">Tecnología Base</h3>
+                            <div class="grid grid-cols-2 gap-3" id="tech-base-container">
+                                <button onclick="selectTech('base', 'IA', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-indigo-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>🤖</span> <span>Inteligencia Artificial</span>
+                                </button>
+                                <button onclick="selectTech('base', 'Quantum', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-indigo-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>⚛️</span> <span>Computación Cuántica</span>
+                                </button>
+                                <button onclick="selectTech('base', 'Biotech', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-indigo-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>🧬</span> <span>Biotecnología</span>
+                                </button>
+                                <button onclick="selectTech('base', 'IoT', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-indigo-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>🌐</span> <span>IoT / Red 6G</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="p-6 rounded-2xl glass-panel border border-white/5">
+                            <h3 class="text-lg font-bold text-white mb-4">Tecnología de Apoyo</h3>
+                            <div class="grid grid-cols-2 gap-3" id="tech-support-container">
+                                <button onclick="selectTech('support', 'Neurotech', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-pink-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>🧠</span> <span>Neurotecnología</span>
+                                </button>
+                                <button onclick="selectTech('support', 'Web3', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-pink-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>⛓️</span> <span>Web3 / Blockchain</span>
+                                </button>
+                                <button onclick="selectTech('support', 'Robotica', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-pink-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>🦾</span> <span>Robótica Avanzada</span>
+                                </button>
+                                <button onclick="selectTech('support', 'VR', this)" class="tech-btn p-3 rounded-xl bg-gray-800 text-gray-300 hover:bg-pink-600/30 border border-transparent transition text-sm font-semibold flex items-center justify-center space-x-2">
+                                    <span>👓</span> <span>Realidad Mixta</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel de Resultados de Fusión -->
+                    <div class="lg:col-span-7">
+                        <div class="p-8 rounded-2xl glass-panel border border-indigo-500/20 shadow-2xl space-y-6 min-h-[380px] flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center text-xl" id="output-icon-1">🔬</div>
+                                    <span class="text-gray-500 font-bold">+</span>
+                                    <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center text-xl" id="output-icon-2">🔮</div>
+                                    <h4 class="text-lg font-bold text-indigo-400">Proyecto Fusión Activa</h4>
+                                </div>
+                                <h3 id="fusion-title" class="text-2xl font-extrabold text-white">Selecciona las tecnologías para comenzar</h3>
+                                <p id="fusion-desc" class="text-gray-400 text-sm leading-relaxed">El futuro se moldea conectando conceptos disruptivos. Elige una combinación de la izquierda para desplegar la prognosis del escenario tecnológico.</p>
+                            </div>
+
+                            <div class="border-t border-gray-800 pt-6">
+                                <div class="flex justify-between text-xs font-semibold text-gray-500 mb-2">
+                                    <span>Índice de Viabilidad</span>
+                                    <span id="viability-text">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                                    <div id="viability-bar" class="bg-gradient-to-r from-indigo-500 to-pink-500 h-full w-0 transition-all duration-500"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: TRIVIA INTERACTIVO -->
+        <section id="trivia" class="py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                <div class="p-8 rounded-3xl glass-panel border border-white/5 shadow-2xl relative overflow-hidden">
+                    <div class="absolute -right-24 -bottom-24 w-60 h-60 bg-pink-500/10 rounded-full blur-3xl"></div>
+                    <div class="absolute -left-24 -top-24 w-60 h-60 bg-indigo-500/10 rounded-full blur-3xl"></div>
+
+                    <div id="trivia-welcome" class="text-center space-y-6 relative z-10 py-8">
+                        <span class="text-4xl">🎮</span>
+                        <h2 class="text-3xl font-extrabold text-white">¿Cuánto sabes de la Era Digital?</h2>
+                        <p class="text-gray-400 max-w-lg mx-auto">Pon a prueba tu conocimiento tecnológico sobre hitos, inventos y las mentes brillantes que lideraron nuestra transición digital.</p>
+                        <button onclick="startTrivia()" class="px-8 py-3 rounded-xl font-bold bg-gradient-to-r from-pink-500 to-indigo-500 text-white hover:opacity-95 transition">Comenzar Desafío</button>
+                    </div>
+
+                    <div id="trivia-game" class="hidden space-y-6 relative z-10">
+                        <div class="flex justify-between items-center text-xs font-semibold text-gray-500">
+                            <span id="trivia-progress">Pregunta 1 de 5</span>
+                            <span id="trivia-score">Puntaje: 00</span>
+                        </div>
+                        <div class="w-full bg-gray-800 h-1 rounded-full">
+                            <div id="trivia-bar" class="bg-pink-500 h-full w-1/5 transition-all duration-300"></div>
+                        </div>
+                        <h3 id="trivia-question" class="text-xl font-bold text-white py-2">¿Cuál fue el primer navegador web ampliamente popular lanzado en 1993?</h3>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="trivia-options">
+                            <!-- Las opciones se generarán dinámicamente -->
+                        </div>
+
+                        <div class="flex justify-end">
+                            <button id="next-btn" onclick="nextQuestion()" class="hidden px-6 py-2.5 rounded-xl text-xs font-bold bg-indigo-600 text-white hover:bg-indigo-500 transition">Siguiente Pregunta →</button>
+                        </div>
+                    </div>
+
+                    <div id="trivia-result" class="hidden text-center space-y-6 relative z-10 py-8">
+                        <span id="result-emoji" class="text-5xl">🏆</span>
+                        <h2 id="result-heading" class="text-3xl font-extrabold text-white">¡Desafío Completado!</h2>
+                        <p id="result-text" class="text-gray-400 max-w-lg mx-auto">Has demostrado un gran dominio de la historia digital moderna.</p>
+                        <div class="flex justify-center space-x-4">
+                            <button onclick="resetTrivia()" class="px-6 py-3 rounded-xl text-xs font-bold bg-gray-800 text-white border border-gray-700 hover:bg-gray-700 transition">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="bg-gray-950 border-t border-gray-900 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex justify-center space-x-6 text-sm text-gray-500">
+                <span>© 2026 Portal de la Era Digital</span>
+                <span>•</span>
+                <span>Desarrollado con fines educativos y de divulgación</span>
+            </div>
+            <p class="text-xs text-gray-600">Las simulaciones científicas y estadísticas de esta página web son representaciones conceptuales de las tendencias e índices tecnológicos globales estimados.</p>
+        </div>
+    </footer>
+
+    <!-- LOGICA SCRIPT -->
+    <script>
+        // Función para desplazamiento suave a secciones
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Filtro de Línea de Tiempo
+        function filterTimeline(category) {
+            const items = document.querySelectorAll('.timeline-item');
+            const buttons = ['all', 'hardware', 'network', 'software'];
+            
+            // Actualizar estilo del botón activo
+            buttons.forEach(btn => {
+                const el = document.getElementById(`btn-${btn}`);
+                if (btn === category) {
+                    el.className = "px-4 py-2 text-xs font-bold rounded-lg bg-indigo-600 text-white transition";
+                } else {
+                    el.className = "px-4 py-2 text-xs font-bold rounded-lg bg-gray-800 text-gray-400 hover:bg-gray-700 transition";
+                }
+            });
+
+            // Ocultar / Mostrar elementos de la línea de tiempo
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        // Dashboard - Contadores en Tiempo Real
+        let startTime = Date.now();
+        const baseDataPerSec = 150000; // GB aproximados
+        const baseEmailsPerSec = 3400000;
+        const baseSearchesPerSec = 95000;
+        const baseEnergyPerSec = 410; // kWh
+
+        function updateCounters() {
+            const elapsed = (Date.now() - startTime) / 1000;
+            
+            document.getElementById('counter-data').innerText = Math.floor(elapsed * baseDataPerSec).toLocaleString();
+            document.getElementById('counter-emails').innerText = Math.floor(elapsed * baseEmailsPerSec).toLocaleString();
+            document.getElementById('counter-searches').innerText = Math.floor(elapsed * baseSearchesPerSec).toLocaleString();
+            document.getElementById('counter-energy').innerText = Math.floor(elapsed * baseEnergyPerSec).toLocaleString();
+        }
+        setInterval(updateCounters, 300);
+
+        // Laboratorio de Combinación Tecnológica
+        let selectedBase = '';
+        let selectedSupport = '';
+
+        const combinations = {
+            'IA+Neurotech': {
+                title: 'Interfaces Cerebro-Máquina Inteligentes (Simbiosis Cognitiva)',
+                desc: 'La fusión del procesamiento neural inteligente con interfaces físicas permite restaurar el movimiento, expandir la memoria y procesar información digital directamente mediante el pensamiento, iniciando la era transhumanista.',
+                viability: 65,
+                icons: ['🧠', '🤖']
+            },
+            'IA+Web3': {
+                title: 'Sistemas Autónomos de Economía Descentralizada',
+                desc: 'Organizaciones Autónomas Descentralizadas (DAOs) gobernadas enteramente por algoritmos de IA auto-mejorables que toman decisiones de inversión, resuelven disputas comerciales y gestionan micropagos sin supervisión humana.',
+                viability: 80,
+                icons: ['⛓️', '🤖']
+            },
+            'IA+Robotica': {
+                title: 'Robots Humanoides Conscientes del Entorno',
+                desc: 'La robótica de precisión impulsada por modelos de inteligencia artificial corporizada genera asistentes domésticos y operarios industriales capaces de aprender tareas complejas con solo ver una demostración.',
+                viability: 85,
+                icons: ['🦾', '🤖']
+            },
+            'IA+VR': {
+                title: 'Metaversos Dinámicos Generados en Tiempo Real',
+                desc: 'Espacios virtuales interactivos hiperrealistas creados al vuelo por Inteligencia Artificial generativa basados en el estado emocional y requerimientos inmediatos del usuario. Mundos infinitos y personalizados.',
+                viability: 75,
+                icons: ['👓', '🤖']
+            },
+            'Quantum+Neurotech': {
+                title: 'Simulación Neural Subatómica Integral',
+                desc: 'La potencia masiva de la computación cuántica procesa simultáneamente billones de interacciones neuronales, permitiendo el mapeo completo de la consciencia humana o el desarrollo de redes neuronales biológicas sintéticas.',
+                viability: 40,
+                icons: ['🧠', '⚛️']
+            },
+            'Quantum+Web3': {
+                title: 'Criptografía Post-Cuántica Blockchain',
+                desc: 'Con la llegada de ordenadores cuánticos capaces de romper las llaves RSA tradicionales, el blockchain muta en protocolos de encriptación basados en leyes físicas cuánticas, haciéndolos matemáticamente inquebrantables.',
+                viability: 70,
+                icons: ['⛓️', '⚛️']
+            },
+            'Quantum+Robotica': {
+                title: 'Navegación e Inteligencia de Enjambre Cuántica',
+                desc: 'Ejércitos de microbots capaces de calcular simultáneamente millones de posibilidades físicas a nivel molecular para intervenciones de rescate de catástrofes o coordinación de tráfico de naves autónomas.',
+                viability: 50,
+                icons: ['🦾', '⚛️']
+            },
+            'Quantum+VR': {
+                title: 'Realidad Virtual de Fidelidad Molecular',
+                desc: 'Simulaciones de física de fluidos, luz y materia que replican el comportamiento cuántico a la perfección, permitiendo simular experimentos químicos espaciales complejos directamente en la interfaz del usuario.',
+                viability: 45,
+                icons: ['👓', '⚛️']
+            },
+            'Biotech+Neurotech': {
+                title: 'Prótesis Orgánicas y Neurales Biocompatibles',
+                desc: 'Impresión orgánica 3D y chips sinápticos híbridos que se fusionan con el sistema nervioso central. Prótesis sintéticas que envían información táctil directa a los sensores cerebrales con latencia cero.',
+                viability: 55,
+                icons: ['🧠', '🧬']
+            },
+            'Biotech+Web3': {
+                title: 'Bancos de Datos Genéticos Descentralizados e Incentivados',
+                desc: 'Soberanía biogenómica absoluta donde los pacientes pueden encriptar y vender de manera anónima y controlada partes de su código genético para el desarrollo de tratamientos globales de salud sin intermediarios corporativos.',
+                viability: 60,
+                icons: ['⛓️', '🧬']
+            },
+            'Biotech+Robotica': {
+                title: 'Cyborgs y Nanobots de Reparación Tisular',
+                desc: 'Inserción de robots orgánicos microscópicos que viajan por el flujo sanguíneo destruyendo patógenos y reparando tejidos a escala celular, prolongando la expectativa de vida de forma drástica.',
+                viability: 50,
+                icons: ['🦾', '🧬']
+            },
+            'Biotech+VR': {
+                title: 'Entornos de Laboratorio Médico Inmersivo Molecular',
+                desc: 'Fisiólogos y científicos manipulan estructuras de virus y cadenas de ADN utilizando guantes táctiles y pantallas tridimensionales, logrando vacunas y tratamientos bio-dirigidos en cuestión de horas.',
+                viability: 70,
+                icons: ['👓', '🧬']
+            },
+            'IoT+Neurotech': {
+                title: 'Ciudades Sensibles a la Respuesta Cognitiva Colectiva',
+                desc: 'La red 6G masiva recopila la sintonía del pulso fisiológico y de atención de los ciudadanos para calibrar la intensidad de iluminación pública, tiempos de tránsito, y optimizar dinámicamente espacios públicos anti-estrés.',
+                viability: 50,
+                icons: ['🧠', '🌐']
+            },
+            'IoT+Web3': {
+                title: 'Infraestructura de Dispositivos Conectados de Propiedad Común',
+                desc: 'Sistemas de energía, redes y transporte automatizados y descentralizados que realizan transacciones económicas de forma autónoma entre sí, logrando mayor autosuficiencia vecinal.',
+                viability: 75,
+                icons: ['⛓️', '🌐']
+            },
+            'IoT+Robotica': {
+                title: 'Logística Total Automatizada en Ciudades Inteligentes',
+                desc: 'Vehículos de reparto terrestre y drones aéreos de carga optimizados por una nube urbana, recogiendo y entregando mercancías con control predictivo de tráfico e inventario en tiempo real.',
+                viability: 85,
+                icons: ['🦾', '🌐']
+            },
+            'IoT+VR': {
+                title: 'Gemelos Digitales Urbanos en Tiempo Real',
+                desc: 'Copia exacta tridimensional de ciudades enteras alimentada por sensores del IoT. Los gestores gubernamentales pueden experimentar y resolver problemas de transporte, polución o gestión de agua de forma inmersiva.',
+                viability: 80,
+                icons: ['👓', '🌐']
+            }
+        };
+
+        function selectTech(type, tech, element) {
+            // Remover estilos seleccionados de la categoría
+            const container = document.getElementById(`tech-${type}-container`);
+            container.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'bg-pink-600', 'text-white');
+                btn.classList.add('bg-gray-800', 'text-gray-300');
+            });
+
+            // Marcar botón activo
+            if (type === 'base') {
+                selectedBase = tech;
+                element.classList.remove('bg-gray-800', 'text-gray-300');
+                element.classList.add('bg-indigo-600', 'text-white');
+            } else {
+                selectedSupport = tech;
+                element.classList.remove('bg-gray-800', 'text-gray-300');
+                element.classList.add('bg-pink-600', 'text-white');
+            }
+
+            // Realizar Fusión
+            triggerFusion();
+        }
+
+        function triggerFusion() {
+            if (!selectedBase || !selectedSupport) return;
+
+            const key = `${selectedBase}+${selectedSupport}`;
+            const result = combinations[key];
+
+            if (result) {
+                document.getElementById('output-icon-1').innerText = result.icons[0];
+                document.getElementById('output-icon-2').innerText = result.icons[1];
+                document.getElementById('fusion-title').innerText = result.title;
+                document.getElementById('fusion-desc').innerText = result.desc;
+                
+                // Animación de barra de viabilidad
+                document.getElementById('viability-text').innerText = `${result.viability}%`;
+                document.getElementById('viability-bar').style.width = `${result.viability}%`;
+            }
+        }
+
+        // Trivia de la Era Digital - Lógica de Juego
+        const triviaData = [
+            {
+                q: "¿Qué significan las siglas WWW concebidas por Tim Berners-Lee?",
+                options: ["World Wide Web", "World Wifi Wire", "Wide Web Wireless", "Web World Wide"],
+                correct: 0
+            },
+            {
+                q: "¿Qué sistema operativo móvil de código abierto lanzó Google en 2008?",
+                options: ["Symbian", "iOS", "Android", "Windows Mobile"],
+                correct: 2
+            },
+            {
+                q: "¿Cuál fue el componente tecnológico clave de la Primera Generación de computadoras (como ENIAC)?",
+                options: ["Transistores", "Tubos de Vacío / Válvulas", "Microchips de Silicio", "Circuitos Integrados"],
+                correct: 1
+            },
+            {
+                q: "¿Qué inventora matemática es ampliamente considerada la primera programadora de la historia?",
+                options: ["Grace Hopper", "Marie Curie", "Ada Lovelace", "Margaret Hamilton"],
+                correct: 2
+            },
+            {
+                q: "¿Cuál de estos hitos de internet ocurrió en la década de 1960?",
+                options: ["Lanzamiento de Google", "Creación de ARPANET", "Aparición de Wikipedia", "Fundación de Facebook"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIdx = 0;
+        let score = 0;
+
+        function startTrivia() {
+            document.getElementById('trivia-welcome').classList.add('hidden');
+            document.getElementById('trivia-result').classList.add('hidden');
+            document.getElementById('trivia-game').classList.remove('hidden');
+            currentQuestionIdx = 0;
+            score = 0;
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const data = triviaData[currentQuestionIdx];
+            document.getElementById('trivia-progress').innerText = `Pregunta ${currentQuestionIdx + 1} de ${triviaData.length}`;
+            document.getElementById('trivia-score').innerText = `Puntaje: ${score * 20}`;
+            document.getElementById('trivia-bar').style.width = `${((currentQuestionIdx + 1) / triviaData.length) * 100}%`;
+            document.getElementById('trivia-question').innerText = data.q;
+
+            const optionsContainer = document.getElementById('trivia-options');
+            optionsContainer.innerHTML = '';
+
+            data.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "trivia-opt-btn p-4 rounded-xl bg-gray-800 text-left text-sm font-semibold hover:bg-gray-700/50 transition border border-gray-700 text-gray-200";
+                btn.innerText = opt;
+                btn.onclick = () => checkAnswer(idx, btn);
+                optionsContainer.appendChild(btn);
+            });
+
+            document.getElementById('next-btn').classList.add('hidden');
+        }
+
+        function checkAnswer(selectedIdx, btnElement) {
+            const data = triviaData[currentQuestionIdx];
+            const options = document.querySelectorAll('.trivia-opt-btn');
+
+            // Deshabilitar todas las opciones para prevenir trampas
+            options.forEach(btn => btn.disabled = true);
+
+            if (selectedIdx === data.correct) {
+                btnElement.classList.add('bg-emerald-500', 'border-emerald-500', 'text-white');
+                score++;
+            } else {
+                btnElement.classList.add('bg-rose-500', 'border-rose-500', 'text-white');
+                // Mostrar la opción correcta
+                options[data.correct].classList.add('bg-emerald-500/80', 'border-emerald-500', 'text-white');
+            }
+
+            document.getElementById('next-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestionIdx++;
+            if (currentQuestionIdx < triviaData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            document.getElementById('trivia-game').classList.add('hidden');
+            document.getElementById('trivia-result').classList.remove('hidden');
+
+            const resultText = document.getElementById('result-text');
+            const resultHeading = document.getElementById('result-heading');
+            const resultEmoji = document.getElementById('result-emoji');
+
+            const finalScore = score * 20;
+
+            if (finalScore === 100) {
+                resultEmoji.innerText = '🧠⚡';
+                resultHeading.innerText = '¡Nivel: Sabio de la Red!';
+                resultText.innerText = `Obtuviste un puntaje perfecto de ${finalScore}/100. Tu conocimiento de la Era Digital es admirable.`;
+            } else if (finalScore >= 60) {
+                resultEmoji.innerText = '💻';
+                resultHeading.innerText = '¡Nivel: Nativo Digital!';
+                resultText.innerText = `Obtuviste un excelente puntaje de ${finalScore}/100. Tienes bases muy sólidas de cómo funciona el mundo digital.`;
+            } else {
+                resultEmoji.innerText = '🔌';
+                resultHeading.innerText = '¡Nivel: Desconectado!';
+                resultText.innerText = `Obtuviste un puntaje de ${finalScore}/100. ¡No te preocupes! Siempre es un buen momento para aprender más sobre tecnología.`;
+            }
+        }
+
+        function resetTrivia() {
+            document.getElementById('trivia-result').classList.add('hidden');
+            document.getElementById('trivia-welcome').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
